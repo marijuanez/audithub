@@ -1,0 +1,11 @@
+{
+  "name": "audithub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "AuditHub — Centro de Control y Estado de Webs",
+  "scripts": {
+    "create-project": "npx -y firebase-tools@latest projects:create audithub --display-name AuditHub",
+    "deploy": "npx -y firebase-tools@latest deploy --only hosting --project audithub",
+    "projects-list": "npx -y firebase-tools@latest projects:list"
+  }
+}
