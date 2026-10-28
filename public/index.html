@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AuditHub — Centro de Auditoría, Estado Web, SEO y GEO</title>
+  <meta name="description" content="Directorio interactivo y comprobador de estado web con todas las herramientas imprescindibles de rendimiento, Core Web Vitals, SEO técnico y visibilidad en IA (GEO)." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Sticky Navigation -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="#" class="brand">
+        <div class="brand-icon">AH</div>
+        <div class="brand-text">
+          <div class="brand-title">
+            AuditHub
+            <span class="brand-badge">audithub.web.app</span>
+          </div>
+          <span class="brand-subtitle">Estado Web · Core Web Vitals · SEO · GEO IA</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Secciones del documento">
+        <a href="#imprescindibles" class="nav-link">1. Imprescindibles</a>
+        <a href="#rendimiento" class="nav-link">2. Rendimiento</a>
+        <a href="#seo-contenido" class="nav-link">3. SEO y contenido</a>
+        <a href="#geo-ia" class="nav-link">4. GEO / IA</a>
+        <a href="#recomendacion" class="nav-link">5. Recomendación mínima</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button id="theme-toggle-btn" class="btn-icon" type="button">☀️ Modo Claro</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Hero + Live Website Status Checker -->
+    <section class="hero">
+      <div class="hero-top">
+        <div>
+          <h1 class="hero-title">Centro de Control y Estado de Webs</h1>
+          <p class="hero-lead">
+            Aquí tienes los enlaces directos, ordenados por prioridad tal como en tu guía. Para tu caso, los más importantes son
+            <strong>PageSpeed Insights</strong>, <strong>Lighthouse</strong>, <strong>Search Console</strong>,
+            <strong>Screaming Frog</strong> y un <strong>validador de schema</strong>.
+          </p>
+        </div>
+      </div>
+
+      <!-- Interactive URL Status & Deep-Link Launcher -->
+      <div class="checker-panel">
+        <div class="checker-label">
+          <span>⚡ Comprobador de Estado en Vivo y Lanzador de Auditoría</span>
+        </div>
+        <form id="url-checker-form" class="checker-form">
+          <div class="url-input-wrap">
+            <span class="url-input-icon">🌐</span>
+            <input
+              type="text"
+              id="target-url-input"
+              class="url-input"
+              placeholder="Introduce la URL de tu web (ej. https://munchos.web.app)"
+              value="https://munchos.web.app"
+              aria-label="URL de la web a comprobar"
+            />
+          </div>
+          <button type="submit" class="btn-primary">
+            Comprobar Estado y Preparar Enlaces
+          </button>
+        </form>
+
+        <div class="preset-chips">
+          <span>Webs rápidas:</span>
+          <button type="button" class="chip" data-url="https://munchos.web.app">munchos.web.app</button>
+          <button type="button" class="chip" data-url="https://audithub.web.app">audithub.web.app</button>
+          <button type="button" class="chip" data-url="https://bimsoluciones.com">bimsoluciones.com</button>
+          <button type="button" class="chip" data-url="https://google.com">google.com</button>
+        </div>
+
+        <div id="status-result-box" class="status-result">
+          <div class="status-header">
+            <div class="status-indicator">
+              <span id="status-dot" class="pulse-dot"></span>
+              <span id="status-text">Comprobando...</span>
+            </div>
+            <span id="status-meta" style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono);"></span>
+          </div>
+          <div id="quick-audit-actions" class="quick-audit-actions"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Search & View Mode Toolbar -->
+    <div class="toolbar">
+      <div class="search-box">
+        <span class="search-icon">🔍</span>
+        <input
+          type="search"
+          id="tool-search"
+          placeholder="Buscar herramienta o para qué sirve (ej. Core Web Vitals, JSON-LD, backlinks, IA)..."
+          aria-label="Buscar herramienta"
+        />
+      </div>
+
+      <div class="view-toggles" role="group" aria-label="Cambiar vista">
+        <button type="button" id="view-cards-btn" class="view-btn active">Vista Tarjetas</button>
+        <button type="button" id="view-table-btn" class="view-btn">Vista Tabla (como en PDF)</button>
+      </div>
+    </div>
+
+    <!-- Dynamic Sections 1 to 4 from PDF -->
+    <div id="sections-container"></div>
+
+    <!-- Section 5: Mi recomendación mínima -->
+    <section id="recomendacion" class="section-block sec-5">
+      <div class="section-header">
+        <div class="section-title-group">
+          <span class="section-number">05</span>
+          <div>
+            <h2 class="section-title">Mi recomendación mínima</h2>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">
+              Checklist interactivo con el flujo de trabajo breve recomendado en el PDF
+            </p>
+          </div>
+        </div>
+        <span class="section-count">Top 5 + GEO</span>
+      </div>
+
+      <div class="recommendation-card">
+        <p class="rec-intro">
+          Si solo quieres instalar un flujo de trabajo breve, usa estos cinco (marca cada paso al revisar tu web):
+        </p>
+
+        <div id="workflow-checklist" class="workflow-list"></div>
+
+        <div class="rec-note">
+          Y para <strong>GEO</strong>, añade <a href="https://www.profound.com/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">Profound</a> o <a href="https://otterly.ai/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">Otterly.ai</a>, más pruebas manuales en
+          <a href="https://www.perplexity.ai/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">Perplexity</a>,
+          <a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">ChatGPT</a> y
+          <a href="https://gemini.google.com/" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">Gemini</a>.
+          <strong>PageSpeed</strong> sigue siendo el mejor punto de partida para el rendimiento, pero no cubre por sí solo SEO avanzado ni visibilidad en motores generativos.
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Referencias citadas en el PDF -->
+    <section id="referencias" class="section-block">
+      <div class="section-header">
+        <div class="section-title-group">
+          <span class="section-number" style="background: var(--bg-card); border: 1px solid var(--border-color); color: var(--text-secondary);">⁂</span>
+          <div>
+            <h2 class="section-title">Referencias y análisis citados en el PDF</h2>
+            <p style="font-size: 0.85rem; color: var(--text-secondary);">Enlaces de referencia incluidos al final del documento</p>
+          </div>
+        </div>
+        <span class="section-count">3 enlaces</span>
+      </div>
+
+      <div class="references-box">
+        <ol class="ref-list">
+          <li>
+            Documentación oficial de PageSpeed Insights API v5:
+            <a href="https://developers.google.com/speed/docs/insights/v5/about?hl=es-419" target="_blank" rel="noopener noreferrer">
+              https://developers.google.com/speed/docs/insights/v5/about?hl=es-419
+            </a>
+          </li>
+          <li>
+            Guía PageSpeed Insights y Lighthouse para rendimiento web (BIM Soluciones):
+            <a href="https://bimsoluciones.com/pagespeed-insights-lighthouse-rendimiento-web/" target="_blank" rel="noopener noreferrer">
+              https://bimsoluciones.com/pagespeed-insights-lighthouse-rendimiento-web/
+            </a>
+          </li>
+          <li>
+            Análisis directo en PageSpeed Insights (munchos.web.app - móvil):
+            <a href="https://pagespeed.web.dev/analysis/https-munchos-web-app/vr43tb0czv?form_factor=mobile" target="_blank" rel="noopener noreferrer">
+              https://pagespeed.web.dev/analysis/https-munchos-web-app/vr43tb0czv?form_factor=mobile
+            </a>
+          </li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>AuditHub · Todos los enlaces y herramientas de auditoría web organizados por sección · Preparado para Firebase Hosting (<strong>audithub.web.app</strong>)</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
