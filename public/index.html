@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AuditHub — Centro de Auditoría, Estado Web, SEO y GEO</title>
-  <meta name="description" content="Directorio interactivo y comprobador de estado web con todas las herramientas imprescindibles de rendimiento, Core Web Vitals, SEO técnico y visibilidad en IA (GEO)." />
+  <title>AuditHub — Analizador Multi-Herramienta en 1 Clic (SEO, CWV, Schema & GEO)</title>
+  <meta name="description" content="Pega cualquier URL en una sola caja y obtén al instante los resultados y enlaces directos de PageSpeed Insights, Lighthouse, Search Console, Screaming Frog, Rich Results, Schema.org y visibilidad en IA." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -19,9 +19,9 @@
         <div class="brand-text">
           <div class="brand-title">
             AuditHub
-            <span class="brand-badge">auditkit.web.app</span>
+            <span class="brand-badge">audithub-marijuanez.web.app</span>
           </div>
-          <span class="brand-subtitle">Estado Web · Core Web Vitals · SEO · GEO IA</span>
+          <span class="brand-subtitle">1 Caja URL → Resultados en Vivo en Todos los Enlaces</span>
         </div>
       </a>
 
@@ -30,7 +30,7 @@
         <a href="#rendimiento" class="nav-link">2. Rendimiento</a>
         <a href="#seo-contenido" class="nav-link">3. SEO y contenido</a>
         <a href="#geo-ia" class="nav-link">4. GEO / IA</a>
-        <a href="#recomendacion" class="nav-link">5. Recomendación mínima</a>
+        <a href="#recomendacion" class="nav-link">5. Recomendación</a>
       </nav>
 
       <div class="nav-actions">
@@ -40,59 +40,71 @@
   </header>
 
   <main class="container">
-    <!-- Hero + Live Website Status Checker -->
+    <!-- Hero + Single-Box Unified URL Tester -->
     <section class="hero">
       <div class="hero-top">
         <div>
-          <h1 class="hero-title">Centro de Control y Estado de Webs</h1>
+          <h1 class="hero-title">Analizador Unificado de Estado Web, SEO, Schema y GEO</h1>
           <p class="hero-lead">
-            Aquí tienes los enlaces directos, ordenados por prioridad tal como en tu guía. Para tu caso, los más importantes son
-            <strong>PageSpeed Insights</strong>, <strong>Lighthouse</strong>, <strong>Search Console</strong>,
-            <strong>Screaming Frog</strong> y un <strong>validador de schema</strong>.
+            Copia o escribe la URL a testear en <strong>una sola caja</strong>: la web analiza automáticamente el estado en vivo
+            (<strong>PageSpeed / Lighthouse</strong>, rastreo técnico estilo <strong>Screaming Frog</strong>, validación de <strong>Schema JSON-LD / Rich Results</strong>,
+            <strong>robots.txt / sitemap.xml</strong> y acceso de <strong>bots de IA</strong>) y actualiza todos los enlaces de abajo con tu URL lista para abrir.
           </p>
         </div>
       </div>
 
-      <!-- Interactive URL Status & Deep-Link Launcher -->
+      <!-- Single Box Input & Multi-Tool Live Results -->
       <div class="checker-panel">
         <div class="checker-label">
-          <span>⚡ Comprobador de Estado en Vivo y Lanzador de Auditoría</span>
+          <span>🎯 Introduce o pega la URL a auditar en todas las herramientas</span>
+          <span style="font-size: 0.75rem; color: var(--text-secondary); text-transform: none; font-weight: 500;">
+            Actualiza resultados en vivo + enlaces directos en las 4 secciones
+          </span>
         </div>
+
         <form id="url-checker-form" class="checker-form">
           <div class="url-input-wrap">
-            <span class="url-input-icon">🌐</span>
+            <span class="url-input-icon">🔗</span>
             <input
               type="text"
               id="target-url-input"
               class="url-input"
-              placeholder="Introduce la URL de tu web (ej. https://munchos.web.app)"
+              placeholder="Pega aquí la URL a testear (ej. https://munchos.web.app)"
               value="https://munchos.web.app"
-              aria-label="URL de la web a comprobar"
+              aria-label="URL de la web a testear"
             />
           </div>
+          <button type="button" id="paste-analyze-btn" class="btn-secondary" title="Pegar desde el portapapeles y analizar">
+            📋 Pegar y Testear
+          </button>
           <button type="submit" class="btn-primary">
-            Comprobar Estado y Preparar Enlaces
+            ⚡ Testear URL en Todos los Enlaces
           </button>
         </form>
 
         <div class="preset-chips">
-          <span>Webs rápidas:</span>
+          <span>Probar con un clic:</span>
           <button type="button" class="chip" data-url="https://munchos.web.app">munchos.web.app</button>
           <button type="button" class="chip" data-url="https://auditkit.web.app">auditkit.web.app</button>
           <button type="button" class="chip" data-url="https://audithub-marijuanez.web.app">audithub-marijuanez.web.app</button>
           <button type="button" class="chip" data-url="https://bimsoluciones.com">bimsoluciones.com</button>
-          <button type="button" class="chip" data-url="https://google.com">google.com</button>
         </div>
 
-        <div id="status-result-box" class="status-result">
-          <div class="status-header">
+        <!-- Unified Live Results Dashboard -->
+        <div id="live-dashboard" class="live-dashboard visible">
+          <div class="dashboard-banner">
             <div class="status-indicator">
               <span id="status-dot" class="pulse-dot"></span>
-              <span id="status-text">Comprobando...</span>
+              <span id="status-text">Comprobando URL...</span>
             </div>
             <span id="status-meta" style="font-size: 0.8rem; color: var(--text-secondary); font-family: var(--font-mono);"></span>
           </div>
+
+          <!-- 1-Click Direct Links Bar for the Tested URL -->
           <div id="quick-audit-actions" class="quick-audit-actions"></div>
+
+          <!-- 4 Comprehensive Live Audit Panels -->
+          <div id="live-results-grid" class="results-grid"></div>
         </div>
       </div>
     </section>
@@ -104,18 +116,18 @@
         <input
           type="search"
           id="tool-search"
-          placeholder="Buscar herramienta o para qué sirve (ej. Core Web Vitals, JSON-LD, backlinks, IA)..."
+          placeholder="Filtrar herramientas o resultados (ej. Core Web Vitals, JSON-LD, backlinks, IA)..."
           aria-label="Buscar herramienta"
         />
       </div>
 
       <div class="view-toggles" role="group" aria-label="Cambiar vista">
-        <button type="button" id="view-cards-btn" class="view-btn active">Vista Tarjetas</button>
-        <button type="button" id="view-table-btn" class="view-btn">Vista Tabla (como en PDF)</button>
+        <button type="button" id="view-cards-btn" class="view-btn active">Vista Tarjetas (con Resultado)</button>
+        <button type="button" id="view-table-btn" class="view-btn">Vista Tabla PDF (con Resultado)</button>
       </div>
     </div>
 
-    <!-- Dynamic Sections 1 to 4 from PDF -->
+    <!-- Dynamic Sections 1 to 4 from PDF (each card displays live result + parameterized URL) -->
     <div id="sections-container"></div>
 
     <!-- Section 5: Mi recomendación mínima -->
@@ -126,7 +138,7 @@
           <div>
             <h2 class="section-title">Mi recomendación mínima</h2>
             <p style="font-size: 0.85rem; color: var(--text-secondary);">
-              Checklist interactivo con el flujo de trabajo breve recomendado en el PDF
+              Checklist interactivo con enlaces directos ya configurados para la URL que estás testeando
             </p>
           </div>
         </div>
@@ -135,7 +147,7 @@
 
       <div class="recommendation-card">
         <p class="rec-intro">
-          Si solo quieres instalar un flujo de trabajo breve, usa estos cinco (marca cada paso al revisar tu web):
+          Si solo quieres instalar un flujo de trabajo breve, usa estos cinco (cada enlace abre directamente la URL que has puesto arriba):
         </p>
 
         <div id="workflow-checklist" class="workflow-list"></div>
@@ -189,7 +201,7 @@
   </main>
 
   <footer class="footer">
-    <p>AuditHub · Todos los enlaces y herramientas de auditoría web organizados por sección · Alojado en Firebase Hosting (<strong>auditkit.web.app</strong>)</p>
+    <p>AuditHub · Analizador Multi-Herramienta en una sola caja · En vivo en <strong>audithub-marijuanez.web.app</strong> (Copia v1 en <a href="https://auditkit.web.app" target="_blank" rel="noopener noreferrer" style="color: var(--accent-primary);">auditkit.web.app</a>)</p>
   </footer>
 
   <script src="app.js"></script>

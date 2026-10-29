@@ -2,7 +2,7 @@
   "hosting": [
     {
       "site": "auditkit",
-      "public": "public",
+      "public": "public-auditkit",
       "ignore": [
         "firebase.json",
         "**/.*",
